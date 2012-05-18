@@ -1,0 +1,11 @@
+framework:
+  runtime: none
+  type: perl
+hooks:
+  post-staging: []
+  pre-running: []
+  pre-staging:
+  - dsadsa
+  - dsadsad
+instances: 1
+mem: 128M

@@ -1,0 +1,33 @@
+div.content 
+
+    br
+    br
+    br
+
+    div.page-header 
+      a(style="float:right", class="btn", href="#{ymlfile}")
+        i.icon-arrow-down
+        | Download
+      h1 #{appName}
+
+    pre(class="prettyprint lang-yaml", id="generated")
+      | Loading..
+
+
+    p 
+      label Download link
+      input(type="text", id="downloadLink", class="span6", value="#{ymlfile}") 
+
+
+script
+  $().ready(function() {
+
+    setTimeout(function(){
+      $('#generated').load('#{ymlfile}', function() {
+        prettyPrint();
+        $('#downloadLink').val( 'http://' + window.location.host + $('#downloadLink').val());
+
+       });
+    }, 1000);
+  });
+

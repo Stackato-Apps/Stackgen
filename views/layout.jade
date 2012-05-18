@@ -1,0 +1,41 @@
+!!!
+html
+    head
+        title Stackgen #{title} 
+        link(href="/prettify/prettify.css", type="text/css", rel="stylesheet")
+        link(href="/stylesheets/prettify-sons-of-obsidian.css", type="text/css", rel="stylesheet")
+
+        script(src='/javascripts/jquery-1.7.2.min.js') 
+        script(src='/javascripts/jquery.knob-1.1.1.js') 
+        script(src='/javascripts/bootstrap-collapse.js')
+        script(src='/javascripts/generate.js') 
+        script(type="text/javascript", src="/prettify/prettify.js")
+        script(src="/prettify/lang-yaml.js")
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css') 
+        link(rel='stylesheet', href='/stylesheets/stackgen.css') 
+        link(rel='stylesheet', href='/stylesheets/bootstrap-overrides.css') 
+
+    body
+        div.navbar.navbar-fixed-top
+            div.navbar-inner
+                div.container
+                    a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a(href='#').brand Stackgen #{title}
+                    div.nav-collapse
+                        ul.nav
+                            li.active
+                                a(href='/') Home
+                            li
+                                a(href='/generate/') Generate
+                            li
+                                a(href='/examples') Examples
+                            li
+                                a(href='/about') About
+
+
+    div.container!= body
+        footer
+            p &copy; ActiveState 2012

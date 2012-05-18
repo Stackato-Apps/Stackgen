@@ -1,0 +1,39 @@
+div.hero-unit 
+    h1 Hello, lets generate a yaml 
+    p ( for the awesome stackato platform )
+
+
+
+div.content 
+    div.page-header 
+
+    div.row 
+
+        div.span6
+            h2 Get started
+            br
+            a(href="/generate", class="btn", style="width:300px; height:40px; font-size: 20px; line-height:40px") Generate 
+
+            br
+            br
+            br
+
+        div.span5 
+           h2 FAQ
+
+            p Can I create a manifest.yml instead?
+            p Couldn't you come up with a better idea?
+            p.label.notice Coming soon
+
+    div.row
+        div.span11
+            h2 Recently generated 
+            h4 Drupal:
+            br
+            pre(class="prettyprint lang-yaml")
+              include ../public/examples/php/drupal.yaml
+ 
+script                                                                                                                                                                                     
+  $().ready(function() {                                                        
+    prettyPrint()                                                               
+  });   

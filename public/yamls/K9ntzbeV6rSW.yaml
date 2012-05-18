@@ -1,0 +1,11 @@
+framework:
+  runtime: perl514
+  type: perl
+hooks:
+  pre-running:
+  - dsadsa
+instances: 100
+mem: 882M
+services:
+- fs-cache: filesystem
+- test-service: mongodb

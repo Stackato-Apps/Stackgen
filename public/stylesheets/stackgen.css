@@ -1,0 +1,25 @@
+input.knob :focus{
+  outline: none;
+  border: none;
+
+}
+
+.accordion-heading {
+  background-color: #ccc;
+}
+
+input.preStagingHook, input.postStagingHook, input.preRunningHook {
+
+  display:block;
+  float: none !important;
+
+}
+
+
+.service {
+
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ccc;
+
+}

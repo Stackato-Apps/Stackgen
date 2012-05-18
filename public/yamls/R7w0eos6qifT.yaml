@@ -1,0 +1,20 @@
+env:
+  ' POO': '"poo"'
+  CAKE: '"cake"'
+framework:
+  runtime: node
+  type: node
+hooks:
+  pre-staging:
+  - npm install cake
+  - npm install coffee
+ignores:
+- ' .git'
+- node_modules
+instances: 11
+mem: 543M
+name: node
+services:
+- node-fs: filesystem
+- node-mongodb: mongodb
+url: node.com

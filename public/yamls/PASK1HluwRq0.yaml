@@ -1,0 +1,5 @@
+framework:
+  runtime: perl514
+  type: perl
+instances: 1
+mem: 128M

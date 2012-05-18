@@ -1,0 +1,5 @@
+hooks:
+  post-staging: []
+  pre-staging: []
+instances: 1
+mem: 128M

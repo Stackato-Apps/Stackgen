@@ -1,0 +1,8 @@
+envs:
+  ' POO': '"poo"'
+  caKE: '"cake"'
+ignores:
+- ' ignore2/'
+- ignore1
+instances: 1
+mem: 128M

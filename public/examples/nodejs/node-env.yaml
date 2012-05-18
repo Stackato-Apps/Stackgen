@@ -1,0 +1,6 @@
+name: env
+
+framework:
+  type: node
+
+mem: 64M

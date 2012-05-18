@@ -1,0 +1,15 @@
+framework:
+  type: buildpack
+hooks:
+  post-staging:
+  - deliver
+ignores:
+- ARSE=arse
+- CAKE=cake
+instances: 1
+mem: 128M
+name: Gen
+services:
+- sdsada: redis
+- dsdsa: mongodb
+url: stackato.as.com

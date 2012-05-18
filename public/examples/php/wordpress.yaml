@@ -1,0 +1,25 @@
+# YAML
+name: wordpress
+framework:
+  type: php
+  runtime: php
+mem: 128M
+services:
+  wp-mysql: mysql
+  wp-filesystem: filesystem
+hooks:
+  pre-staging:
+    # add a bit of salt
+    - echo "&lt;?php" &gt; wp-salt.php
+    - curl https://api.wordpress.org/secret-key/1.1/salt/ &gt;&gt; wp-salt.php
+  post-staging:
+    # make a temporary wp-content directory
+    - chmod u+w wp-content
+    - mv wp-content wp-content-temp
+    # create wp-content in the shared filesystem and link to them
+    - mkdir -p $STACKATO_FILESYSTEM/wp-content
+    - ln -s "$STACKATO_FILESYSTEM"/wp-content wp-content
+    - cp -r wp-content-temp/* wp-content
+    # remove the tempoary wp-content directory
+    - chmod u+w wp-content-temp
+    - rm -rf wp-content-temp

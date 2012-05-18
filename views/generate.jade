@@ -1,0 +1,212 @@
+append head
+  script(src="/slidingform/sliding.form.js")
+  link(rel="stylesheet", href="/slidingform/css/style.css")
+
+
+div.hero-unit 
+  h1 Generating...
+
+div.content 
+    div.row 
+      div(id="content")
+        div(id="wrapper")
+          div(id="steps")
+            form(id="stackgen", method="POST", action="/generate")
+              fieldset(class="step") 
+                legend App basics
+                p
+                  label(class="control-label") What's the name of your app?
+                  input( id="appName", name="appName", type="text", class="span3", placeholder="Type your application name here…")
+
+                p
+                  label(class="control-label") Want to choose a URL for your app?
+                  input( id="appName", name="appURL", type="text", class="span3", placeholder="Type your application URL here…")
+
+              fieldset(class="step")
+                legend Language/Framework
+                p
+                  label(class="control-label") Cool, now what is the primary langage of your app?
+
+                  select(id="appFramework", name="appFramework", class="span3")
+                    option(value="", disabled) Choose a framework...
+                    option(value="perl") Perl
+                    option(value="python") Python
+                    option(value="buildpack") Buildpack
+                    option(value="generic") Generic Framework
+                    option(value="java_web") Java
+                    option(value="node") Node.js
+                    option(value="php") PHP
+                    option(value="ruby") Ruby
+
+                p
+                  label(class="control-label") Smokin' - do you want to use a specific runtime?
+
+                  select(id="appRuntime", name="appRuntime", class="span3")
+                    option(value="", disabled) Choose a runtime...(optional)
+                    option(value="none") None
+                    option(value="perl") ActivePerl 5.14
+                    option(value="python27")  ActivePython 2.7
+                    option(value="python32")  ActivePython 3.2
+                    option(value="buildpack") Buildpack
+                    option(value="generic") Generic Framework
+                    option(value="java") Java 6
+                    option(value="node") Node.js v0.6
+                    option(value="php") PHP 5
+                    option(value="ruby18") Ruby 1.8
+                    option(value="ruby19")  Ruby 1.9
+
+              fieldset(class="step")
+                legend Memory
+                p
+                  label(class="control-label") How much memory is it going to need?
+
+                  input( class="knob", name="appMem", style="height:50px; outline:none; border:none", data-width="200", data-min="32", data-max="8000", data-thickness=".4", data-bgColor="#FFFFFF", data-displayInput="true", data-cursor=true, value="128")
+
+
+                  //  select(id="appMem", name="appMem")
+                      option 32M
+                      option 64M
+                      option(selected="selected") 128M
+                      option 256M
+                      option 512M
+                      option 1GB
+                      option 2GB
+                    span( class="help-block") Memory requirements in MB
+
+              fieldset(class="step")
+                legend Instances
+                p
+                  label(class="control-label") How many instances does it need?
+
+                  input( class="knob", name="numInstances", style="height:50px; outline:none; border:none", data-width="200", data-min="1", data-thickness=".4", data-fgColor="#AAAAAA", data-bgColor="#FFFFFF", data-displayInput="true", data-cursor=true, value="1")
+              
+              fieldset(class="step")
+                legend Services
+                p
+                  label Add your services
+
+                  select(name="serviceChoices", id="serviceChoices")
+                    option mongodb
+                    option mysql
+                    option redis
+                    option postgresql
+                    option filesystem
+                    option rabbit
+                  
+                  label Service Name
+                  input(type="text", name="serviceName", id="serviceName") 
+
+                  a(href="#", id="addService", class="btn") 
+                      
+                    i.icon-plus
+                    |  Add service
+
+                p(id="servicesCont")
+
+
+              fieldset(class="step")
+                h2 Hooks
+                #accordion2.accordion
+                    .accordion-group
+                        .accordion-heading
+                          a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseOne', style="text-align:left")
+                            span.label(style="padding:3px;font-size:15px;margin-right:10px;")  
+                              i.icon-chevron-down.icon-white   
+                              |  Pre-staging hooks
+                            //span.label.label(style="font-size:18px;") These are run before any of the staging procedures
+                        #collapseOne.accordion-body.collapse(style='height: 0px;')
+                          .accordion-inner(id="preStagingCont")
+                            p
+                              label Hook 1
+                              input(type="text", class="preStagingHook", name="preStagingHooks[]") 
+                            p
+                              label Hook 2
+                              input(type="text", class="preStagingHook", name="preStagingHooks[]") 
+                            a(href="btn", class="btn", href="#", id="addPreStagingHook") 
+                              i(class="icon-plus")
+                              | Add another
+                      .accordion-group
+                        .accordion-heading
+                          a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseTwo', style="text-align:left")
+                            span.label(style="padding:3px;font-size:15px;margin-right:10px;")  
+                              i.icon-chevron-down.icon-white   
+                              |  Post-staging hooks
+
+                        #collapseTwo.accordion-body.collapse(style='height: 0px;')
+                          .accordion-inner
+                            .accordion-inner(id="postStagingCont")
+                              p
+                                label Hook 1
+                                input(type="text", class="postStagingHook", name="postStagingHooks[]") 
+                              p
+                                label Hook 2
+                                input(type="text", class="postStagingHook", name="postStagingHooks[]") 
+                              a(href="btn", class="btn", href="#", id="addPostStagingHook") 
+                                i(class="icon-plus")
+                                | Add another
+
+                      .accordion-group
+                        .accordion-heading
+                          a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseThree', style="text-align:left")
+                            span.label(style="padding:3px;font-size:15px;margin-right:10px;")  
+                              i.icon-chevron-down.icon-white   
+                              |  Post-staging hooks
+
+
+                        #collapseThree.accordion-body.collapse(style='height: 0px;')
+                          .accordion-inner
+                              p
+                                label Hook 1
+                                input(type="text", class="preRunningHook", name="preRunningHooks[]") 
+                              p
+                                label Hook 2
+                                input(type="text", class="preRunningHook", name="preRunningHooks[]") 
+                              a(href="btn", class="btn", href="#", id="addPreRunningHook") 
+                                i(class="icon-plus")
+                                | Add another
+
+
+
+              fieldset(class="step")
+                legend Advanced
+                p
+                  label ignores
+                  input(type="text", name="ignores")
+
+                  label env vars
+                  input(type="text", name="envs")
+
+              fieldset(class="step")
+                legend Generate
+                p
+                  button(type="submit", class="btn btn-large btn-success") Generate
+
+          div(id="navigation", style="display:none")
+            ul
+              li(class="selected") 
+                a(href="#") App Basics
+
+              li
+                a(href="#") Runtimes
+
+              li
+                a(href="#") Memory
+
+              li
+                a(href="#") Instances
+
+              li
+                a(href="#") Services
+
+              li
+                a(href="#") Hooks
+              li
+                a(href="#") Advanced
+
+              li
+                a(href="#") Generate
+                
+                  
+
+
+

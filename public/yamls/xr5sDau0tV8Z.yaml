@@ -1,0 +1,10 @@
+framework:
+  runtime: none
+  type: perl
+hooks:
+  post-staging: []
+  pre-running: []
+  pre-staging: []
+instances: 7
+mem: 2933M
+url: cake

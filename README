@@ -1,0 +1,10 @@
+Stackgen
+========
+
+A place to generate and store a vast collection of stackato.yaml's.
+
+To push to Stackato:
+
+`stackato push -n`
+
+Note, all generated yamls are stored in a persistent file system service.

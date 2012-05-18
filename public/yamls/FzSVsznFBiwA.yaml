@@ -1,0 +1,13 @@
+framework:
+  runtime: none
+  type: perl
+hooks:
+  post-staging: []
+  pre-staging:
+  - cd cake
+  - rm cake
+instances: 1
+mem: 128M
+services:
+- dsdas: filesystem
+- dsdas: redis

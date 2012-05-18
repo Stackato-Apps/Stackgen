@@ -1,0 +1,40 @@
+div.content 
+    
+    br
+    br
+
+    div.page-header 
+      h3 Examples
+
+
+    div.row
+      div.span6
+        h3 PHP
+        ul
+          li 
+            a(href="/example/php/drupal") Drupal
+          li 
+            a(href="/example/php/wordpress") Wordpress
+
+      div.span6
+        h3 Perl
+        ul
+          li
+            a(href="/example/perl/bugzilla") Bugzilla
+
+    div.row
+      div.span6
+        h3 Node.js
+        ul
+          li
+            a(href="/example/nodejs/node-env") Node-env
+      div.span6
+        h3 Stackgen!
+        a(href="/example/stackgen/stackgen") Stackgen
+
+
+script
+  $().ready(function() {
+    prettyPrint()
+  });
+

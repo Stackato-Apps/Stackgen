@@ -1,0 +1,15 @@
+name: stackgen
+
+framework:
+  type: node
+
+mem: 128M
+
+services:
+  stackgenmongo: mongodb
+  stackgenyamls: filesystem
+
+hooks:
+  pre-running:
+    - mv public/yamls public/yamls-bkk || true
+    - ln -s $STACKATO_FILESYSTEM public/yamls

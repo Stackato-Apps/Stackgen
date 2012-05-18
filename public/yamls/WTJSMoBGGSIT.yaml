@@ -1,0 +1,5 @@
+framework:
+  runtime: none
+  type: perl
+instances: 1
+mem: 128M

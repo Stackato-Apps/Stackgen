@@ -1,0 +1,8 @@
+hooks:
+  pre-staging:
+  - dsdsadas
+instances: 1
+mem: 128M
+services:
+- sdasdsa: filesystem
+- dasdasd: postgresql
