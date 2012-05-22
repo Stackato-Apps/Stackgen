@@ -27,7 +27,7 @@ script
     setTimeout(function(){
       $('#generated').load('#{ymlfile}', function() {
         prettyPrint();
-        $('#downloadLink').val( 'http://' + window.location.host + '/view'+ $('#downloadLink').val().replace('.yaml', ''));
+        $('#downloadLink').val( 'http://' + window.location.host + "/view/#{id}" );
 
        });
     }, 1000);

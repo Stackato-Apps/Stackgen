@@ -21,7 +21,8 @@ exports.generate = function(req, res){
 
 exports.postGenerate = function(req, res){
   var pyyaml = require('pyyaml');
-  var filename= stackgen.randomString(12)+'.yaml';
+  var fileID = stackgen.randomString(12);
+  var filename= fileID + '.yaml';
 
   stackgen.process(req.body, function(err, data){
 
@@ -31,7 +32,7 @@ exports.postGenerate = function(req, res){
 
     
     var file = '/yamls/'+filename  
-    res.render('postGenerate', { title: ' - Generated', ymlfile: file, appName: data.name })
+    res.render('postGenerate', { title: ' - Generated', ymlfile: file, appName: data.name, id: fileID })
 
   });
 };
@@ -39,12 +40,13 @@ exports.postGenerate = function(req, res){
 exports.viewYaml = function(req, res){
   
   var file = '/yamls/'+req.params.id+'.yaml';
+  var fileID = req.params.id
 
   pyyaml.load(__dirname+'/../public/yamls/'+req.params.id+'.yaml', function(err, data) {
       if (err) throw err;
         console.log('load successful: ' + JSON.stringify(data));  
 
-        res.render('viewYaml', { title: ' - view', ymlfile: file, appName: data.name });
+        res.render('viewYaml', { title: ' - view', ymlfile: file, appName: data.name, id: fileID });
 
   });
   };
