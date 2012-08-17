@@ -13,7 +13,7 @@ var app = module.exports = express.createServer();
 
 if (process.env.VCAP_SERVICES){
     srv = JSON.parse(process.env.VCAP_SERVICES);
-    cred = srv['mongodb-1.8'][0].credentials;
+    cred = (srv['mongodb'] || srv['mongodb-1.8'])[0].credentials;
     console.log(cred);
 
     mongoose.connect('mongodb://'+ cred.user +':' + cred.pass + '@' +cred.hostname+':'+cred.port+'/'+cred.db);
