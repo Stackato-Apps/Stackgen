@@ -16,11 +16,9 @@ if (process.env.VCAP_SERVICES){
     cred = (srv['mongodb'] || srv['mongodb-1.8'])[0].credentials;
     console.log(cred);
 
-    mongoose.connect('mongodb://'+ cred.user +':' + cred.pass + '@' +cred.hostname+':'+cred.port+'/'+cred.db);
+    mongoose.connect('mongodb://' + cred.username + ':' + cred.password + '@' + cred.hostname + ':' + cred.port + '/' + cred.db);
 
 }
-
-
 
 // Configuration
 
