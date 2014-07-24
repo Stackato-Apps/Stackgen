@@ -6,8 +6,8 @@ framework:
 mem: 128M
 
 services:
-  stackgenmongo: mongodb
-  stackgenyamls: filesystem
+  ${name}-mongo: mongodb
+  ${name}-yamls: filesystem
 
 hooks:
   pre-running:
