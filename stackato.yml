@@ -1,8 +1,5 @@
 name: stackgen
 
-framework:
-  type: node
-
 mem: 128M
 
 services:
