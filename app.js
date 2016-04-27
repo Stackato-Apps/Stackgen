@@ -24,7 +24,7 @@ if (process.env.VCAP_SERVICES){
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
+  app.set('view engine', 'pug');
   app.use(express.bodyParser());
   app.use( express.cookieParser());
   app.use(express.methodOverride());
